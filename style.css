@@ -6,10 +6,9 @@
     --text-color-dark: #222;
     --glow: rgba(138, 233, 34, 0.15);
     --header-height: 80px;
-    /* Altura do cabeçalho */
+    
 }
 
-/* --- Base & Reset --- */
 * {
     margin: 0;
     padding: 0;
@@ -18,7 +17,6 @@
 
 html {
     scroll-behavior: smooth;
-    /* Evita que o header fixo cubra o título ao clicar nos links do menu */
     scroll-padding-top: var(--header-height);
 }
 
@@ -144,7 +142,6 @@ section {
 /* --- Hero --- */
 .hero {
     position: relative;
-    /* Referência para o botão posicionado em .hero-actions */
     display: flex;
     align-items: center;
     justify-content: flex-start;
