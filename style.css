@@ -163,7 +163,7 @@ section {
             rgba(13, 14, 18, 0.95) 40%,
             rgba(13, 14, 18, 0.55) 70%,
             rgba(13, 14, 18, 0.15) 100%),
-        url("./assets/Designer.png");
+        url("./assets/designer1.png");
     background-size: cover;
     background-position: right center;
 }
