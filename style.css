@@ -626,6 +626,10 @@ section {
     border-radius: 15px;
 
     box-shadow: 0 0 25px rgba(138, 233, 34, 0.08);
+
+    transition:
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
 }
 
 /* Títulos dos cartões */
@@ -648,20 +652,35 @@ section {
 
 /* Efeito ao passar o mouse */
 
+
+/* ========================================
+   HOVER FUTURISTA DOS CARDS
+======================================== */
+
 @media (hover: hover) and (pointer: fine) {
-    .grid-cards .card:hover {
+
+    .grid-cards .card:hover,
+    .grid-cards .card.reveal-visivel:hover {
+
         transform: translateY(-8px);
+
         border-color: rgba(138, 233, 34, 0.55);
 
         box-shadow:
-            0 15px 45px rgba(0, 0, 0, 0.25),
-            0 0 25px rgba(138, 233, 34, 0.08);
+            0 15px 45px rgba(0, 0, 0, 0.30),
+            0 0 30px rgba(138, 233, 34, 0.12);
     }
 
     .grid-cards .card:hover .card-icon {
-        box-shadow: 0 0 30px rgba(138, 233, 34, 0.2);
+
+        border-color: rgba(138, 233, 34, 0.65);
+
+        box-shadow:
+            0 0 20px rgba(138, 233, 34, 0.18),
+            inset 0 0 12px rgba(138, 233, 34, 0.08);
     }
 }
+
 
 /* Tablets */
 
@@ -1242,5 +1261,69 @@ footer p {
 
     .menu-toggle.ativo span:nth-child(3) {
         transform: translateY(-7px) rotate(-45deg);
+    }
+}
+
+
+/* Evita deslocamentos para quem prefere
+   movimento reduzido */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .grid-cards .card:hover,
+    .grid-cards .card.reveal-visivel:hover {
+        transform: none;
+    }
+}
+
+
+
+
+/* ========================================
+   ILUMINAÇÃO DINÂMICA DOS CARDS
+======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .grid-cards .card {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+    }
+
+    /* Camada de iluminação */
+    .grid-cards .card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+
+        background: radial-gradient(
+            250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+            rgba(138, 233, 34, 0.14),
+            transparent 75%
+        );
+
+        opacity: 0;
+        pointer-events: none;
+        z-index: 0;
+
+        transition: opacity 0.35s ease;
+    }
+
+    /* Ativa a iluminação */
+    .grid-cards .card:hover::before {
+        opacity: 1;
+    }
+
+    /* Mantém o conteúdo acima da luz */
+    .grid-cards .card > * {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .grid-cards .card::before {
+        display: none;
     }
 }

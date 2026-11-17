@@ -75,3 +75,36 @@ if (movimentoPermitido && "IntersectionObserver" in window) {
         observador.observe(card);
     });
 }
+
+
+
+// ========================================
+// ILUMINAÇÃO DINÂMICA DOS CARDS
+// ========================================
+
+const cardsNeon = document.querySelectorAll(
+    ".grid-cards .card"
+);
+
+const permiteHover = window.matchMedia(
+    "(hover: hover) and (pointer: fine)"
+).matches;
+
+if (permiteHover) {
+
+    cardsNeon.forEach((card) => {
+
+        card.addEventListener("pointermove", (evento) => {
+
+            const posicao = card.getBoundingClientRect();
+
+            const x = evento.clientX - posicao.left;
+            const y = evento.clientY - posicao.top;
+
+            card.style.setProperty("--mouse-x", `${x}px`);
+            card.style.setProperty("--mouse-y", `${y}px`);
+
+        });
+
+    });
+}
