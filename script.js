@@ -31,3 +31,47 @@ document.addEventListener("keydown", (evento) => {
         fecharMenu();
     }
 });
+
+
+
+// ========================================
+// SCROLL REVEAL - SOLUÇÕES ESTRATÉGICAS
+// ========================================
+
+const cardsSolucoes = document.querySelectorAll(
+    ".grid-cards .card"
+);
+
+const movimentoPermitido = window.matchMedia(
+    "(prefers-reduced-motion: no-preference)"
+).matches;
+
+if (movimentoPermitido && "IntersectionObserver" in window) {
+
+    const observador = new IntersectionObserver((entradas) => {
+
+        entradas.forEach((entrada) => {
+
+            if (entrada.isIntersecting) {
+
+                entrada.target.classList.remove("reveal-pendente");
+                entrada.target.classList.add("reveal-visivel");
+
+                observador.unobserve(entrada.target);
+            }
+
+        });
+
+    }, {
+        threshold: 0.15
+    });
+
+    cardsSolucoes.forEach((card, indice) => {
+
+        card.classList.add("reveal-pendente");
+
+        card.style.transitionDelay = `${indice * 120}ms`;
+
+        observador.observe(card);
+    });
+}
