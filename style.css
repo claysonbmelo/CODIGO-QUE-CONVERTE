@@ -550,6 +550,156 @@ section {
     }
 }
 
+
+/* ========================================
+   SEÇÃO DE SOLUÇÕES
+======================================== */
+
+.solutions {
+    position: relative;
+    isolation: isolate;
+    padding: 100px 7%;
+    background:
+        radial-gradient(
+            ellipse at 50% 0%,
+            rgba(138, 233, 34, 0.06),
+            transparent 60%
+        );
+}
+
+/* Título da seção */
+
+.solutions .section-title {
+    margin-bottom: 55px;
+}
+
+/* Grade dos cartões */
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+/* Cartões */
+
+.grid-cards .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 35px 28px;
+    min-height: 310px;
+
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.045),
+        rgba(255, 255, 255, 0.015)
+    );
+
+    border: 1px solid rgba(138, 233, 34, 0.15);
+    border-radius: 18px;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+/* Ícones */
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 65px;
+    height: 65px;
+    margin-bottom: 28px;
+
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    font-weight: 800;
+
+    background: rgba(138, 233, 34, 0.09);
+    border: 1px solid rgba(138, 233, 34, 0.25);
+    border-radius: 15px;
+
+    box-shadow: 0 0 25px rgba(138, 233, 34, 0.08);
+}
+
+/* Títulos dos cartões */
+
+.grid-cards .card h3 {
+    color: var(--text-color-light);
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.4;
+    margin-bottom: 15px;
+}
+
+/* Descrições */
+
+.grid-cards .card p {
+    color: #a9a9a9;
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+/* Efeito ao passar o mouse */
+
+@media (hover: hover) and (pointer: fine) {
+    .grid-cards .card:hover {
+        transform: translateY(-8px);
+        border-color: rgba(138, 233, 34, 0.55);
+
+        box-shadow:
+            0 15px 45px rgba(0, 0, 0, 0.25),
+            0 0 25px rgba(138, 233, 34, 0.08);
+    }
+
+    .grid-cards .card:hover .card-icon {
+        box-shadow: 0 0 30px rgba(138, 233, 34, 0.2);
+    }
+}
+
+/* Tablets */
+
+@media (max-width: 992px) {
+    .grid-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Celulares */
+
+@media (max-width: 768px) {
+    .solutions {
+        padding: 75px 6%;
+    }
+
+    .solutions .section-title {
+        margin-bottom: 35px;
+    }
+
+    .grid-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .grid-cards .card {
+        min-height: auto;
+        padding: 28px;
+    }
+
+    .card-icon {
+        width: 58px;
+        height: 58px;
+        margin-bottom: 20px;
+    }
+}
+
+
 /* --- Footer --- */
 footer {
     background-color: var(--secondary-color);
