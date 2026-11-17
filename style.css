@@ -1096,3 +1096,25 @@ footer p {
         right: 0;
     }
 }
+
+/* CABEÇALHO COMPACTO PARA CELULARES */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 75px;
+        padding: 10px 5%;
+    }
+
+    header .logo {
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .logo-img {
+        width: 45px;
+    }
+}

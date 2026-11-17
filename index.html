@@ -29,26 +29,43 @@
 
 <body>
 
-    <header>
-        <a href="#topo" class="logo" aria-label="Código que Converte - voltar ao topo">
+    
+<header>
+    <a href="#topo" class="logo"
+       aria-label="Código que Converte - voltar ao topo">
 
-        <img class="logo-img" src="./assets/minha-logo.webp"
-            alt="">
+        <img class="logo-img"
+             src="./assets/minha-logo.webp"
+             alt="">
 
         <p class="logo-text">
             Código que<br>
             <span>Converte</span>
         </p>
-
     </a>
-        
-        <nav aria-label="Principal">
-            <a href="#solucoes">Soluções</a>
-            <a href="https://www.instagram.com/codigoqueconverte/" target="_blank"
-                rel="noopener noreferrer">Instagram</a>
-            <a href="#contato">Contato</a>
-        </nav>
-    </header>
+
+    <!-- Botão do menu para celulares -->
+    <button class="menu-toggle"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="menu-principal">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <nav id="menu-principal" aria-label="Principal">
+        <a href="#solucoes">Soluções</a>
+
+        <a href="https://www.instagram.com/codigoqueconverte/"
+           target="_blank"
+           rel="noopener noreferrer">Instagram</a>
+
+        <a href="#contato">Contato</a>
+    </nav>
+</header>
+
 
     <main id="topo">
         <!-- Hero -->
