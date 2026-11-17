@@ -1118,3 +1118,99 @@ footer p {
         width: 45px;
     }
 }
+
+
+/* =====================================
+   MENU HAMBÚRGUER RESPONSIVO
+===================================== */
+
+/* Escondido no computador */
+.menu-toggle {
+    display: none;
+}
+
+/* Apenas celulares */
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        height: 75px;
+        padding: 10px 5%;
+        position: sticky;
+        top: 0;
+    }
+
+    header .logo {
+        font-size: 1rem;
+        gap: 8px;
+    }
+
+    .logo-img {
+        width: 45px;
+    }
+
+    /* Botão hambúrguer */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 45px;
+        height: 45px;
+        background: transparent;
+        border: 1px solid rgba(138, 233, 34, 0.4);
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        width: 23px;
+        height: 2px;
+        background: var(--primary-color);
+        border-radius: 3px;
+        transition: transform 0.3s ease,
+                    opacity 0.3s ease;
+    }
+
+    /* Menu fechado */
+    header nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        margin-top: 0;
+        padding: 20px;
+        background: #111318;
+        border-bottom: 1px solid rgba(138, 233, 34, 0.25);
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Menu aberto */
+    header nav.menu-aberto {
+        display: flex;
+    }
+
+    header nav a {
+        margin: 0;
+    }
+
+    /* Transformação em X */
+    .menu-toggle.ativo span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+    }
+
+    .menu-toggle.ativo span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.ativo span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+    }
+}
